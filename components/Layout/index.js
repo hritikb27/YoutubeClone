@@ -1,11 +1,12 @@
-import Sidebar from "./Sidebar"
-import Header from "./Header"
+import Sidebar from './Sidebar'
+import Header from './Header'
 
-const Layout = ()=> {
-    return(
+export default function Layout() {
+
+    return (
         <>
+            <Sidebar />
+            <Header />
         </>
     )
 }
-
-export default Layout
