@@ -38,13 +38,13 @@ const Header = () => {
                             <label htmlFor="search-field" className="sr-only">
                                 Search
                             </label>
-                            <div className={inputFocus ? "origin-right border border-gray-400 relative w-full text-gray-400 focus-within:text-gray-600" : "origin-right border border-gray-400 relative w-[80%] text-gray-400 focus-within:text-gray-600"}>
-                                {inputFocus && <div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                            <div className={"border border-gray-400 relative w-[80%] text-gray-400 focus-within:text-gray-600"}>
+                                {<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
                                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                 </div>}
                                 <input
                                     id="search-field"
-                                    className={inputFocus ? "focus:border rounded-sm focus:border-blue-700 block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm" : "focus:border rounded-sm focus:border-blue-700 block w-full h-full pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"}
+                                    className={"focus:border rounded-sm focus:border-blue-700 block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"}
                                     placeholder="Search"
                                     type="search"
                                     name="search"
@@ -109,21 +109,6 @@ const Header = () => {
                     </div>
                 </div>
             </div>
-
-            <main>
-                <div className="py-6">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                        <h1 className="text-2xl font-semibold text-gray-900">Dashboard</h1>
-                    </div>
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
-                        {/* Replace with your content */}
-                        <div className="py-4">
-                            <div className="border-4 border-dashed border-gray-200 rounded-lg h-96" />
-                        </div>
-                        {/* /End replace */}
-                    </div>
-                </div>
-            </main>
         </div>
     )
 }
