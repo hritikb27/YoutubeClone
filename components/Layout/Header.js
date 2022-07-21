@@ -22,8 +22,8 @@ const Header = () => {
     const [inputFocus, setInputFocus] = useState(false)
 
     return (
-        <div className="md:pl-64 flex flex-col flex-1">
-            <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow">
+        <div className="">
+            <div className="sticky top-0 z-10 flex-shrink-0 flex h-16 bg-white shadow-sm">
                 <button
                     type="button"
                     className="px-4 border-r border-gray-200 text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500 md:hidden"
