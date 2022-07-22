@@ -1,34 +1,11 @@
-import { Fragment, useState } from 'react'
-import { AiOutlineRight, AiOutlineLeft } from "react-icons/ai"
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
-import { Menu, Transition } from '@headlessui/react'
-import {
-  BellIcon,
-  MenuAlt2Icon,
-} from '@heroicons/react/outline'
-import { SearchIcon } from '@heroicons/react/solid'
-import CustomRightArrow from '../Arrows/CustomRightArrow';
+import { useState } from 'react'
+import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 5
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 9
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
+import { Navigation, Mousewheel, Keyboard } from "swiper";
 
 const items = [
   { name: 'All', href: '#' },
@@ -50,42 +27,37 @@ const items = [
   { name: 'Recent', href: '#' },
   { name: 'Watched', href: '#' },
   { name: 'New to you', href: '#' },
+  { name: 'Ghibli', href: '#' },
+  { name: 'Computer', href: '#' },
+  { name: 'Ambient', href: '#' },
+  { name: 'Linux', href: '#' },
+  { name: 'Classical', href: '#' },
+  { name: 'Bollywood', href: '#' },
+  { name: 'Probability', href: '#' },
+  { name: 'Calculus', href: '#' },
 ]
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
-
 
 const CategoriesScrollableList = () => {
   const [itemArr, setItemArr] = useState(items)
-  const [inputFocus, setInputFocus] = useState(false)
-
-  const handleRight = ()=> {
-    const firstVal = itemArr[0];
-    let removeFirstElem = itemArr.filter((x,i)=>i!==0)
-    removeFirstElem.push(itemArr[0])
-    setItemArr(removeFirstElem)
-  }
-  
-  const handleLeft = ()=> {
-    const firstVal = itemArr[0];
-    let removeFirstElem = itemArr.filter((x,i)=>i!==(itemArr.length-1))
-    removeFirstElem.splice(0,0, itemArr[itemArr.length-1])
-    setItemArr(removeFirstElem)
-  }
 
   return (
     <div className='relative w-full bg-white w-full sticky border-y border-y-[rgba(0, 0, 0, 0.1)]'>
-      <div className="overflow-hidden absolute min-h-[80px] w-full bg-white  flex items-center gap-8 ">
-        <button className='fixed mr-6' onClick={()=>handleLeft()}><AiOutlineLeft /></button>
-        {itemArr.map((item, i) => {
-          return <div className='h-[30px] w-[fit-content] bg-[rgba(0,0,0,0.05)] px-[10px] flex justify-center rounded-xl border border-[rgba(0,0,0,0.1)]' key={i}>
-            {item.name}
-          </div>
-        })}
+      <div className="overflow-hidden min-h-[60px] max-h-[60px] w-full bg-white  flex items-center gap-8 ">
+        <Swiper
+          navigation={true}
+          mousewheel={true}
+          keyboard={true}
+          modules={[Navigation, Mousewheel, Keyboard]}
+          slidesPerView={9} slidesPerColumn={5} spaceBetween={30}
+          
+          className="p-10">
+          {itemArr.map((item, i) => {
+            return <SwiperSlide className='h-[30px] w-[fit-content] bg-[rgba(0,0,0,0.05)] flex justify-center rounded-2xl border border-[rgba(0,0,0,0.1)]' key={i}>
+              {item.name}
+            </SwiperSlide>
+          })}
+        </Swiper>
       </div>
-      <button className='fixed right-0 top-[10%]' onClick={()=>handleRight()}><AiOutlineRight /></button>
     </div>
   )
 }

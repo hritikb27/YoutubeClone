@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper-button-prev {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBwb2ludHM9IjE1LjI5MyAzLjI5MyA2LjU4NiAxMiAxNS4yOTMgMjAuNzA3IDE2LjcwNyAxOS4yOTMgOS40MTQgMTIgMTYuNzA3IDQuNzA3IDE1LjI5MyAzLjI5MyIvPgo8L3N2Zz4K") !important;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+    background-position: center;
+}
+
+.swiper-button-next {
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij4KICA8cG9seWdvbiBwb2ludHM9IjcuMjkzIDQuNzA3IDE0LjU4NiAxMiA3LjI5MyAxOS4yOTMgOC43MDcgMjAuNzA3IDE3LjQxNCAxMiA4LjcwNyAzLjI5MyA3LjI5MyA0LjcwNyIvPgo8L3N2Zz4K") !important;
+    background-repeat: no-repeat;
+    background-size: 60% auto;
+    background-position: center;
+}
+
+.swiper-button-next::after {
+    display: none;
+}
+
+.swiper-button-prev::after {
+    display: none;
+}
