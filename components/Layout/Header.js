@@ -38,13 +38,13 @@ const Header = () => {
                             <label htmlFor="search-field" className="sr-only">
                                 Search
                             </label>
-                            <div className={"border border-gray-400 relative w-[80%] text-gray-400 focus-within:text-gray-600"}>
-                                {<div className="absolute inset-y-0 left-0 flex items-center pointer-events-none">
+                            <div className={"border shadow-sm border-gray-300 relative w-[80%] text-gray-400 focus-within:text-gray-600"}>
+                                <div className="absolute pl-3 inset-y-0 left-0 flex items-center pointer-events-none">
                                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
-                                </div>}
+                                </div>
                                 <input
                                     id="search-field"
-                                    className={"focus:border rounded-sm focus:border-blue-700 block w-full h-full pl-8 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"}
+                                    className={"focus:border rounded-sm focus:border-blue-700 block w-full h-full pl-10 pr-3 py-2 border-transparent text-gray-900 placeholder-gray-500 focus:outline-none focus:placeholder-gray-400 sm:text-sm"}
                                     placeholder="Search"
                                     type="search"
                                     name="search"
@@ -52,8 +52,8 @@ const Header = () => {
                                     onBlur={()=>setInputFocus(false)}
                                 />
                             </div>
-                            <div className="bg-gray-200 w-[10%] flex justify-center inset-y-0 left-0 shrink-0 items-center pointer-events-none">
-                                <SearchIcon className="h-5 font-thin w-5" aria-hidden="true" />
+                            <div className="rounded-r-sm cursor-pointer border border-gray-300 bg-gray-50 hover:bg-gray-100 w-[10%] flex justify-center inset-y-0 left-0 shrink-0 items-center">
+                                <SearchIcon className=" h-5 font-thin w-5" aria-hidden="true" />
                             </div>
                         </form>
                     </div>
