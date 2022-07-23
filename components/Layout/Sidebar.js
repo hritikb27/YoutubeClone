@@ -1,15 +1,24 @@
+// import {
+//     CalendarIcon,
+//     FolderIcon,
+//     HomeIcon,
+//     UsersIcon,
+// } from '@heroicons/react/outline'
+
 import {
     CalendarIcon,
-    FolderIcon,
+    CollectionIcon,
     HomeIcon,
     UsersIcon,
-} from '@heroicons/react/outline'
+    MenuIcon,
+    CashIcon
+} from '@heroicons/react/solid'
 
 const navigation = [
     { name: 'Home', href: '#', icon: HomeIcon, current: true },
     { name: 'Explore', href: '#', icon: UsersIcon, current: false },
-    { name: 'Shorts', href: '#', icon: FolderIcon, current: false },
-    { name: 'Subscriptions', href: '#', icon: CalendarIcon, current: false },
+    { name: 'Shorts', href: '#', icon: CashIcon, current: false },
+    { name: 'Subscriptions', href: '#', icon: CollectionIcon, current: false },
     // { name: 'Documents', href: '#', icon: InboxIcon, current: false },
     // { name: 'Reports', href: '#', icon: ChartBarIcon, current: false },
 ]
@@ -24,7 +33,8 @@ const Sidebar = () => {
             {/* Sidebar */}
             <div className="hidden md:flex md:w-64 md:flex-col md:fixed md:inset-y-0">
                 <div className="flex flex-col flex-grow bg-white overflow-y-auto">
-                    <div className="flex justify-center top-0 items-center flex-shrink-0 px-4">
+                    <div className="w-[fit-content] flex justify-start top-0 items-center flex-shrink-0 pl-5 cursor-pointer">
+                        <MenuIcon className="mr-3 flex-shrink-0 h-8 w-8 text-black" aria-hidden="true" />
                         <img
                             className="h-16 w-auto"
                             src="static/images/youtube-logo.png"

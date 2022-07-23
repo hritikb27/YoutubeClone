@@ -3,13 +3,20 @@ import { Menu, Transition } from '@headlessui/react'
 import {
     BellIcon,
     MenuAlt2Icon,
+    UserCircleIcon,
+    PlayIcon,
+    UserGroupIcon,
+    LogoutIcon,
+    ChevronRightIcon,
+    DocumentAddIcon
 } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
 
 const userNavigation = [
-    { name: 'Your Profile', href: '#' },
-    { name: 'Settings', href: '#' },
-    { name: 'Sign out', href: '#' },
+    { name: 'Your Channel', href: '#', icon: UserCircleIcon},
+    { name: 'Youtube Studio', href: '#', icon: PlayIcon },
+    { name: 'Switch Account', href: '#', icon: UserGroupIcon },
+    { name: 'Sign Out', href: '#', icon: LogoutIcon },
 ]
 
 function classNames(...classes) {
@@ -60,10 +67,17 @@ const Header = () => {
                     <div className="ml-4 flex items-center md:ml-6">
                         <button
                             type="button"
-                            className="bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="mr-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        >
+                            <span className="sr-only">Add Video</span>
+                            <DocumentAddIcon className="h-6 w-6 text-black" aria-hidden="true" />
+                        </button>
+                        <button
+                            type="button"
+                            className="mr-4 bg-white p-1 rounded-full text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                         >
                             <span className="sr-only">View notifications</span>
-                            <BellIcon className="h-6 w-6" aria-hidden="true" />
+                            <BellIcon className="h-6 w-6 text-black" aria-hidden="true" />
                         </button>
 
                         {/* Profile dropdown */}
@@ -87,7 +101,7 @@ const Header = () => {
                                 leaveFrom="transform opacity-100 scale-100"
                                 leaveTo="transform opacity-0 scale-95"
                             >
-                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                                     {userNavigation.map((item) => (
                                         <Menu.Item key={item.name}>
                                             {({ active }) => (
@@ -95,10 +109,12 @@ const Header = () => {
                                                     href={item.href}
                                                     className={classNames(
                                                         active ? 'bg-gray-100' : '',
-                                                        'block px-4 py-2 text-sm text-gray-700'
+                                                        'group flex gap-1 items-center pl-6 pr-2 py-2 text-sm text-gray-700'
                                                     )}
                                                 >
+                                                    <item.icon className="mr-3 flex-shrink-0 h-6 w-6 text-black" aria-hidden="true" />
                                                     {item.name}
+                                                    {item.name === 'Switch Account' && <ChevronRightIcon className="ml-6 font-thin flex-shrink-0 h-6 w-6 text-gray-800" aria-hidden="true" />}
                                                 </a>
                                             )}
                                         </Menu.Item>
