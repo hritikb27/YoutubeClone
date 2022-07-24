@@ -20,14 +20,15 @@ const VideoCard = ({ img, logo, time, title, channel, views, uploaded, verified,
             videoCardRef.current.style.background = 'white'
             metaDataRef.current.style.transform = 'scale(0.9)'
             setIsHovered(true)
-            // videoCardRef.current.style.height = '400px'
-            videoDurationRef.current.innerText = time
+            if(!live) videoDurationRef.current.innerText = time
+            else videoDurationRef.current.innerText = ''
         }, 500)
         setTimeOutId(timer)
     }
 
     const handleMouseLeave = () => {
-        videoDurationRef.current.innerText = time
+        if(!live) videoDurationRef.current.innerText = time
+        else videoDurationRef.current.innerText = ''
         if (timeOutId) clearTimeout(timeOutId)
         setIsHovered(false)
         videoCardRef.current.style.zIndex = '0'
@@ -43,7 +44,7 @@ const VideoCard = ({ img, logo, time, title, channel, views, uploaded, verified,
             <div className="w-full">
                 <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="h-full w-full relative">
                     <img className="w-full h-full" src={img} alt="" />
-                    <div className="absolute inset-0 flex justify-end items-end mr-2 mb-1 z-10"><span ref={videoDurationRef} className="bg-black w-[fit-content] px-1">{time}</span></div>
+                    <div className="absolute inset-0 flex justify-end items-end mr-2 mb-1 z-10"><span ref={videoDurationRef} className="bg-black w-[fit-content] px-1">{!live && time}</span></div>
                 </div>
                 <div ref={metaDataRef} className="transition-all duration-300 ease-in-out">
                     <div className="mt-3 flex items-start space-x-2">
@@ -61,8 +62,8 @@ const VideoCard = ({ img, logo, time, title, channel, views, uploaded, verified,
                                 </div>}
                             </div>
                             <div className="flex">
-                                <div className="text-[#606060] after:mx-2 after:content-['•']">{views}</div>
-                                <div className="text-[#606060] after:mx-2 after:content-['•']">{uploaded}</div>
+                                <div className="text-[#606060] after:mx-2 after:content-['•']">{views} {live ? 'watching' : 'views'}</div>
+                                {!live && <div className="text-[#606060] after:mx-2 after:content-['•']">{uploaded}</div>}
                             </div>
                             {live && <div className="mt-1 text-xs tracking-wide font-bold border border-red-500 text-red-600 px-1 py-0.5 rounded-sm w-max">LIVE NOW</div>}
                         </div>
