@@ -101,7 +101,18 @@ const Header = () => {
                                 leaveFrom="transform opacity-100 scale-100"
                                 leaveTo="transform opacity-0 scale-95"
                             >
-                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                <Menu.Items className="origin-top-right absolute right-0 mt-2 w-72 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
+                                    <div className='flex items-center gap-4 px-3 py-4 border-b border-gray-300'>
+                                        <img
+                                            className="h-8 w-8 rounded-full"
+                                            src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+                                            alt=""
+                                        />
+                                        <div className='flex flex-col'>
+                                            <span>Your Name</span>
+                                            <a className='text-blue-600'>Manage your Google Account</a>
+                                        </div>
+                                    </div>
                                     {userNavigation.map((item) => (
                                         <Menu.Item key={item.name}>
                                             {({ active }) => (
