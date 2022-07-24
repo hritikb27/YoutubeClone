@@ -39,9 +39,9 @@ const Header = () => {
                     <span className="sr-only">Open sidebar</span>
                     <MenuAlt2Icon className="h-6 w-6" aria-hidden="true" />
                 </button>
-                <div className="flex-1 px-4 flex justify-between">
-                    <div className="flex-1 flex justify-center">
-                        <form className="w-[40%] flex md:mr-0 m-3 rounded-sm" action="#" method="GET">
+                <div className="w-full flex-1 px-4 flex justify-between">
+                    <div className="w-full flex-1 flex justify-center">
+                        <form className="w-[100%] xl:w-[40%] flex md:mr-0 m-3 rounded-sm" action="#" method="GET">
                             <label htmlFor="search-field" className="sr-only">
                                 Search
                             </label>
@@ -59,8 +59,8 @@ const Header = () => {
                                     onBlur={()=>setInputFocus(false)}
                                 />
                             </div>
-                            <div className="rounded-r-sm cursor-pointer border border-gray-300 bg-gray-50 hover:bg-gray-100 w-[10%] flex justify-center inset-y-0 left-0 shrink-0 items-center">
-                                <SearchIcon className=" h-5 font-thin w-5" aria-hidden="true" />
+                            <div className="rounded-r-sm cursor-pointer border border-gray-300 bg-gray-50 hover:bg-gray-100 w-[25%] sm:w-[20%] md:w-[15%] lg:w-[10%] flex justify-center inset-y-0 left-0 shrink-0 items-center">
+                                <SearchIcon className=" h-5 font-thin w-8 xl:w-5" aria-hidden="true" />
                             </div>
                         </form>
                     </div>

@@ -64,7 +64,7 @@ const CategoriesScrollableList = () => {
           
           className="p-10">
           {itemArr.map((item, i) => {
-            return <SwiperSlide className={classNames(item.selected ? 'bg-black text-white' : 'bg-[rgba(0,0,0,0.05)] transition-all duration-300 ease-in-out hover:bg-[rgba(0,0,0,0.09)]', ' cursor-pointer h-[30px] w-[fit-content] flex justify-center rounded-2xl border border-[rgba(0,0,0,0.1)]')} key={i}>
+            return <SwiperSlide className={classNames(item.selected ? 'bg-black text-white' : 'bg-[rgba(0,0,0,0.05)] transition-all duration-300 ease-in-out hover:bg-[rgba(0,0,0,0.09)]', ' cursor-pointer h-[30px] min-w-[80px] w-[fit-content] flex justify-center rounded-2xl border border-[rgba(0,0,0,0.1)]')} key={i}>
               <span onClick={()=>handleSelection(item)} >{item.name}</span>
             </SwiperSlide>
           })}
