@@ -22,7 +22,7 @@ const VideoCard = ({ img, logo, time, title, channel, views, uploaded, verified,
             setIsHovered(true)
             if(!live) videoDurationRef.current.innerText = time
             else videoDurationRef.current.innerText = ''
-        }, 500)
+        }, 700)
         setTimeOutId(timer)
     }
 
@@ -40,9 +40,9 @@ const VideoCard = ({ img, logo, time, title, channel, views, uploaded, verified,
 
     return (
 
-        <div ref={videoCardRef} className="z-0 absolute transition-all duration-300 ease-in-out w-full flex justify-center items-center">
+        <div ref={videoCardRef} onMouseLeave={handleMouseLeave} className="cursor-pointer z-0 absolute transition-all duration-300 ease-in-out w-full flex justify-center items-center">
             <div className="w-full">
-                <div onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} className="h-full w-full relative">
+                <div onMouseEnter={handleMouseEnter} className="h-full w-full relative">
                     <img className="w-full h-full" src={img} alt="" />
                     <div className="absolute inset-0 flex justify-end items-end mr-2 mb-1 z-10"><span ref={videoDurationRef} className="bg-black w-[fit-content] px-1">{!live && time}</span></div>
                 </div>
